@@ -48,103 +48,31 @@ answer=0
 player1=0
 player2=0
 
-'''
-y1=0
-y4=155
-y6=305
-y2=455
-y5=605
-y3=755
-
-def moveit(i):
-        global y1
-        global y2
-        global y3
-        global y4
-        global y5
-        global y6
-        y1 += i
-        if y1 < 900:
-            position = pygame.Rect(75,y1,60,100)
-        else :
-            y1 = 0
-            position = pygame.Rect(75,y1,60,100)
-        screen.blit(ship,position)
-
-        y2 += i
-        if y2 < 900:
-            position = pygame.Rect(150+75,y2,60,100)
-        else :
-            y2 = 0
-            position = pygame.Rect(150+75,y2,60,100)
-        screen.blit(ship,position)
-        
-        y3 += i
-        if y3 < 900:
-            position = pygame.Rect(300+75,y3,60,100)
-        else :
-            y3 = 0
-            position = pygame.Rect(300+75,y3,60,100)
-        screen.blit(ship,position)
-        
-        y4 += i
-        if y4 < 900:
-            position = pygame.Rect(450+75,y4,60,100)
-        else :
-            y4 = 0
-            position = pygame.Rect(450+75,y4,60,100)
-        screen.blit(ship,position)
-        
-        y5 += i
-        if y5 < 900:
-            position = pygame.Rect(600+75,y5,60,100)
-        else :
-            y5 = 0
-            position = pygame.Rect(600+75,y5,60,100)
-        screen.blit(ship,position)
-        
-        y6 += i
-        if y6 < 900:
-            position = pygame.Rect(750+75,y6,60,100)
-        else :
-            y6 = 0
-            position = pygame.Rect(750+75,y6,60,100)
-        screen.blit(ship,position)
-        '''
-pressed = pygame.key.get_pressed()
-def press():
-        global x
-        global y
-        global score1
-        global pscore1
-        if pressed[pygame.K_UP] and y > 2: 
-                y -= 3
-        if pressed[pygame.K_DOWN] and y < 897 -50: 
-                y += 3
-        if pressed[pygame.K_LEFT] and x > 2: 
-                x -= 3
-                score1-=1
-        if pressed[pygame.K_RIGHT] and x < 898: 
-                x += 3
-                score1+=1
-        if score1 == 50 :
-                pscore1 += 15
-                score1 = 0
-def press2():
-        global x_2
-        global y_2
-        global score2
-        global pscore2
-        if pressed[pygame.K_UP] and y_2 > 2: 
-                y_2 -= 3
-        if pressed[pygame.K_DOWN] and y_2 < 897 -50: 
-                y_2 += 3
-        if pressed[pygame.K_LEFT] and x_2 > 2: 
-                x_2 -= 3
-                score2-=1
-        if pressed[pygame.K_RIGHT] and x_2 < 898: 
-                x_2 += 3
-                score2+=1
-        if score2 == 50 :
-                pscore2 +=15
-                score2 = 0
+if flag1 == 0 :
+    winner= font2.render('Player 2 is the winner ',1, (255,255,255))
+    screen.blit(bg,(0,0))
+    screen.blit(winner,(50,400))
+    pygame.mixer.music.load('over.mp3')
+    pygame.mixer.music.play()
+    pygame.display.flip()
+    pygame.time.delay(3000)
+    thankyou=font2.render('Thanks for playing the game',1,(255,255,255))
+    screen.blit(thankyou,(0,600))
+    pygame.display.flip()
+    pygame.time.delay(2000)
+    done = True
+if flag2 == 0 :
+    winner= font2.render('Player 1 is the winner ',1, (255,255,255))
+    screen.blit(bg,(0,0))
+    screen.blit(winner,(50,600))
+    pygame.mixer.music.load('over.mp3')
+    pygame.mixer.music.play()
+    pygame.display.flip()
+    pygame.time.delay(3000)
+    thankyou=font2.render('Thanks for playing the game',1,(255,255,255))
+    screen.blit(thankyou,(0,400))
+    pygame.display.flip()
+    pygame.time.delay(2000)
+    done = True
+    pygame.display.flip()
+    pygame.display.update()
